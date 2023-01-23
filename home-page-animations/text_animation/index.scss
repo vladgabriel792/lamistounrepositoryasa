@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant&family=Manrope:wght@600&family=Press+Start+2P&family=Roboto:wght@400&family=Ubuntu&display=swap');
+
+// font-family: 'Press Start 2P', cursive;
+
+
+
+:root{
+
+}
+
+body,html{
+    height: 50vh; background-color: rgb(255, 255, 255); overflow: hidden;
+    z-index: 2;
+}
+
+*{
+
+}
+
+// #loading-scene{  
+//     top: 0px; left: 0px;
+//     width: 100%;
+//     position: absolute;
+//     height: 100vh; z-index: 10; background-color: rgb(0, 0, 0);
+//     display: flex; justify-content: center; align-items: center;
+
+//     animation: loadingScreen .5s 1s ease-in-out both;
+
+//     #center-text{
+//         display: block; font-weight: bold;
+//     }
+    
+//     h1{
+//         color: rgb(202, 202, 202);
+//         font-family: 'Roboto'; font-weight: 300; font-size: 15px;
+//         animation: logoAnimation 4s ease-in-out infinite both;
+//     }
+// }
+
+.navbar{ 
+    font-family: 'Roboto'; font-weight: 100;
+    .nav-left{
+        opacity: 0;
+        animation: logoAnimation 1.5s 0s both; 
+
+        color: rgb(169, 169, 169); font-size: 10px; margin-left: 10px;
+
+        h1{
+            margin-left: 5%;
+        }
+    }
+}
+
+
+#title-container{
+    height: 100%; overflow: hidden;
+    display: flex; flex-direction: column; color: rgb(0, 0, 0);
+    justify-content: center; text-align: left; position: absolute; top: 15%; left: 5%;
+
+    #cover-text{
+        position: relative; width: 1000px; overflow: hidden;
+
+    }
+    #title-text{
+        animation: skewText 1.5s 0s ease both;
+        margin: 0px; text-align: left; padding: 0px; line-height: clamp(80px,10vw,155px);
+        font-family: 'Cormorant', cursive; font-weight: 100; font-size: clamp(115px,12vw,250px);
+        transition: all .35s ease-in-out;
+    }
+
+    #cover-dif{
+        position: relative; width: 100vw; overflow: hidden;
+    }
+    
+    #title-text-dif{
+        margin: 0px; padding: 0px; line-height: clamp(80px,10vw,170px); margin-top: clamp(0px,1vw,50px);
+        font-family: 'Roboto', sans-serif; font-weight: 600; font-size: clamp(100px,12vw,300px);
+
+        animation: skewText 1.5s 0s ease both; transition: all .35s ease-in-out;
+    }
+}
+
+
+@keyframes skewText {
+
+    from{
+        transform: skewY(15deg) translateY(400px);
+    }
+
+    to{
+        transform: skewY(0deg) translateY(0px);
+    }
+}
+
+
+@keyframes logoAnimation {
+    from{
+        opacity: .2;
+    }
+
+    to{
+        opacity: 1.5;
+    }
+}
+
+
+@keyframes loadingScreen {
+
+    from{
+        transform: translateY(0);
+    }
+
+    to{
+        transform: translateY(-1000px);
+    }
+}

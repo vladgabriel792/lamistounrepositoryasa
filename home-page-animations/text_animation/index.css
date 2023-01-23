@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant&family=Manrope:wght@600&family=Press+Start+2P&family=Roboto:wght@400&family=Ubuntu&display=swap");
+body, html {
+  height: 50vh;
+  background-color: white;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.navbar {
+  font-family: 'Roboto';
+  font-weight: 100;
+}
+
+.navbar .nav-left {
+  opacity: 0;
+  -webkit-animation: logoAnimation 1.5s 0s both;
+          animation: logoAnimation 1.5s 0s both;
+  color: darkgray;
+  font-size: 10px;
+  margin-left: 10px;
+}
+
+.navbar .nav-left h1 {
+  margin-left: 5%;
+}
+
+#title-container {
+  height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: black;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: left;
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+
+#title-container #cover-text {
+  position: relative;
+  width: 1000px;
+  overflow: hidden;
+}
+
+#title-container #title-text {
+  -webkit-animation: skewText 1.5s 0s ease both;
+          animation: skewText 1.5s 0s ease both;
+  margin: 0px;
+  text-align: left;
+  padding: 0px;
+  line-height: clamp(80px, 10vw, 155px);
+  font-family: 'Cormorant', cursive;
+  font-weight: 100;
+  font-size: clamp(115px, 12vw, 250px);
+  -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
+}
+
+#title-container #cover-dif {
+  position: relative;
+  width: 100vw;
+  overflow: hidden;
+}
+
+#title-container #title-text-dif {
+  margin: 0px;
+  padding: 0px;
+  line-height: clamp(80px, 10vw, 170px);
+  margin-top: clamp(0px, 1vw, 50px);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: clamp(100px, 12vw, 300px);
+  -webkit-animation: skewText 1.5s 0s ease both;
+          animation: skewText 1.5s 0s ease both;
+  -webkit-transition: all .35s ease-in-out;
+  transition: all .35s ease-in-out;
+}
+
+@-webkit-keyframes skewText {
+  from {
+    -webkit-transform: skewY(15deg) translateY(400px);
+            transform: skewY(15deg) translateY(400px);
+  }
+  to {
+    -webkit-transform: skewY(0deg) translateY(0px);
+            transform: skewY(0deg) translateY(0px);
+  }
+}
+
+@keyframes skewText {
+  from {
+    -webkit-transform: skewY(15deg) translateY(400px);
+            transform: skewY(15deg) translateY(400px);
+  }
+  to {
+    -webkit-transform: skewY(0deg) translateY(0px);
+            transform: skewY(0deg) translateY(0px);
+  }
+}
+
+@-webkit-keyframes logoAnimation {
+  from {
+    opacity: .2;
+  }
+  to {
+    opacity: 1.5;
+  }
+}
+
+@keyframes logoAnimation {
+  from {
+    opacity: .2;
+  }
+  to {
+    opacity: 1.5;
+  }
+}
+
+@-webkit-keyframes loadingScreen {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+
+@keyframes loadingScreen {
+  from {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  to {
+    -webkit-transform: translateY(-1000px);
+            transform: translateY(-1000px);
+  }
+}
+/*# sourceMappingURL=index.css.map */
