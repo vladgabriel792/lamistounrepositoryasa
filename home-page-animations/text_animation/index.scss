@@ -4,13 +4,14 @@
 
 
 
-:root{
 
+:root{
+    --search-container-bg:#e4e4e4;
 }
 
 body,html{
-    height: 50vh; background-color: rgb(255, 255, 255); overflow: hidden;
-    z-index: 2;
+    height: 100vh; background-color: rgb(255, 255, 255); overflow: hidden;
+    z-index: 2; padding: 0px; margin: 0px;
 }
 
 *{
@@ -38,47 +39,92 @@ body,html{
 // }
 
 .navbar{ 
-    font-family: 'Roboto'; font-weight: 100;
+    font-family: 'Roboto'; font-weight: 100; background-color: transparent;
+    position: absolute; width: 100%; display: flex;
+     justify-content: space-between;
     .nav-left{
-        opacity: 0;
-        animation: logoAnimation 1.5s 0s both; 
-
-        color: rgb(169, 169, 169); font-size: 10px; margin-left: 10px;
-
-        h1{
-            margin-left: 5%;
+        width: 10%;
+        height: 3em;
+        display: flex; justify-content: center; align-items: center;
+        #logo{
+            height: 2em;
+            transform: translateZ(0px);
         }
     }
 }
 
 
-#title-container{
-    height: 100%; overflow: hidden;
-    display: flex; flex-direction: column; color: rgb(0, 0, 0);
-    justify-content: center; text-align: left; position: absolute; top: 15%; left: 5%;
+#view1{
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
 
-    #cover-text{
-        position: relative; width: 1000px; overflow: hidden;
+    #title-container{
+        grid-row-start: 1; grid-column-start: 1; 
+        // background-color: rgb(146, 113, 73);
 
-    }
-    #title-text{
-        animation: skewText 1.5s 0s ease both;
-        margin: 0px; text-align: left; padding: 0px; line-height: clamp(80px,10vw,155px);
-        font-family: 'Cormorant', cursive; font-weight: 100; font-size: clamp(115px,12vw,250px);
-        transition: all .35s ease-in-out;
-    }
-
-    #cover-dif{
-        position: relative; width: 100vw; overflow: hidden;
-    }
+        height: 100%; overflow: visible; width: 20em;
+        display: flex; flex-direction: column; color: rgb(0, 0, 0);
+        justify-content: center; text-align: left; position: relative; top: 15%; left: 5%;
     
-    #title-text-dif{
-        margin: 0px; padding: 0px; line-height: clamp(80px,10vw,170px); margin-top: clamp(0px,1vw,50px);
-        font-family: 'Roboto', sans-serif; font-weight: 600; font-size: clamp(100px,12vw,300px);
+        #cover-text{
+            position: relative; width: 50vw; overflow: hidden;
+    
+        }
+        #title-text{
+            animation: skewText 1.5s 0s ease both;
+            margin: 0px; text-align: left; padding: 0px; line-height: clamp(80px,10vw,155px);
+            font-family: 'Cormorant', cursive; font-weight: 100; font-size: clamp(90px,12vw,250px);
+            transition: all .35s ease-in-out;
+        }
+    
+        #cover-dif{
+            position: relative; width: 75vw; overflow: hidden;
+        }
+        
+        #title-text-dif{
+            margin: 0px; padding: 0px; line-height: clamp(80px,10vw,170px); margin-top: clamp(0px,1vw,50px);
+            font-family: 'Roboto', sans-serif; font-weight: 600; font-size: clamp(80px,12vw,300px);
+    
+            animation: skewText 1.5s 0s ease both; transition: all .35s ease-in-out;
+        }
+    }
 
-        animation: skewText 1.5s 0s ease both; transition: all .35s ease-in-out;
+    #media-container{
+        grid-column-start: 1; grid-column-start: 2;
+        // background-color: antiquewhite;
+
+        #splash-view1{
+            position: absolute;
+            top: 0px; left: 34%;
+            height: clamp(300px,40vw,800px);
+            animation: logoAnimation .4s 1s ease-in-out backwards;
+        }
+
+        #sneaker-view1{
+            animation: slide-sneaker-view1 .65s ease-in-out backwards;
+            position: absolute;
+            top: 0px; left: 44%;
+            height: clamp(350px,40vw,750px);
+        }
+    }
+
+    #search-container{
+        grid-column-start: 1; grid-column-start: 3;
+        background-color: var(--search-container-bg);
+
+        #search-text-container{
+            height: 100%; width: 100%; display: flex; justify-content: center; align-items: center;
+            h1{
+                font-family: 'Roboto',sans-serif ; font-size: 20px;
+                width: 100px; text-align: center; filter: opacity(.7);
+                animation: logoAnimation 1s 1.3s ease-in-out backwards;
+            }
+        }
     }
 }
+
+
 
 
 @keyframes skewText {
@@ -95,7 +141,7 @@ body,html{
 
 @keyframes logoAnimation {
     from{
-        opacity: .2;
+        opacity: 0;
     }
 
     to{
@@ -112,5 +158,59 @@ body,html{
 
     to{
         transform: translateY(-1000px);
+    }
+}
+
+@keyframes slide-sneaker-view1 {
+    from{
+        transform: translateY(-1000px);
+    }
+
+    to{
+        transform: translateY(0px);
+    }
+}
+
+@media only screen and (max-width:965px) {
+
+    #view1{
+        width: 100%;
+        display: block;
+
+        #media-container{
+            text-align: right;
+            position: absolute;
+            width: 100vw !important;
+            height: 50vh;
+            top: 0px; right: -5vw;
+            // background-color: aqua;
+
+            #splash-view1{
+                position: relative;
+                top: 50%; z-index: 45 !important; right: 0px;
+                // top: 50%; right: 50%; z-index: 99;
+                transform: rotate(90deg) scaleX(-1)  translateZ(0);
+                height: clamp(250px,50vw,400px) !important;
+                animation: none;
+                
+            }
+            #sneaker-view1{
+                position: relative !important;
+                top: 50%; z-index: 50 !important; left: -70px;
+                // top: -20%; right: 50%; z-index: 99;
+                transform: rotate(90deg)  translateZ(0);
+                height: clamp(300px,60vw,500px);
+                animation: none;
+            }
+        }
+       
+
+        #title-container{
+            margin: 0px;
+        }
+    }
+    #search-container{
+        // background-color: transparent !important; 
+        z-index: 31 !important;
     }
 }
