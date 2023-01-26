@@ -7,6 +7,7 @@
 
 :root{
     --search-container-bg:#e4e4e4;
+    --primary-red-color:#AF0126;
 }
 
 body,html{
@@ -41,13 +42,13 @@ body,html{
 .navbar{ 
     font-family: 'Roboto'; font-weight: 100; background-color: transparent;
     position: absolute; width: 100%; display: flex;
-     justify-content: space-between;
+     justify-content: space-between; height: 3em;
     .nav-left{
-        width: 10%;
+        margin-left: 20px; padding: 0px; width: 10%;
         height: 3em;
-        display: flex; justify-content: center; align-items: center;
+        display: flex; justify-content: left; align-items: center;
         #logo{
-            height: 2em;
+            height: 1.75em;
             transform: translateZ(0px);
         }
     }
@@ -60,12 +61,12 @@ body,html{
     grid-template-columns: repeat(3,1fr);
 
     #title-container{
-        grid-row-start: 1; grid-column-start: 1; 
+        grid-row-start: 1; grid-column-start: 1; filter: opacity(.75);
         // background-color: rgb(146, 113, 73);
 
         height: 100%; overflow: visible; width: 20em;
         display: flex; flex-direction: column; color: rgb(0, 0, 0);
-        justify-content: center; text-align: left; position: relative; top: 15%; left: 5%;
+        justify-content: center; text-align: left; position: relative; top: 15%; left: 8%;
     
         #cover-text{
             position: relative; width: 50vw; overflow: hidden;
@@ -73,8 +74,8 @@ body,html{
         }
         #title-text{
             animation: skewText 1.5s 0s ease both;
-            margin: 0px; text-align: left; padding: 0px; line-height: clamp(80px,10vw,155px);
-            font-family: 'Cormorant', cursive; font-weight: 100; font-size: clamp(90px,12vw,250px);
+            margin: 0px; text-align: left; padding: 0px; line-height: clamp(65px,10vw,155px);
+            font-family: 'Cormorant', cursive; font-weight: 100; font-size: clamp(75px,12vw,250px);
             transition: all .35s ease-in-out;
         }
     
@@ -83,8 +84,8 @@ body,html{
         }
         
         #title-text-dif{
-            margin: 0px; padding: 0px; line-height: clamp(80px,10vw,170px); margin-top: clamp(0px,1vw,50px);
-            font-family: 'Roboto', sans-serif; font-weight: 600; font-size: clamp(80px,12vw,300px);
+            margin: 0px; padding: 0px; line-height: clamp(60px,10vw,170px); margin-top: clamp(0px,1vw,50px);
+            font-family: 'Roboto', sans-serif; font-weight: 600; font-size: clamp(65px,12vw,300px);
     
             animation: skewText 1.5s 0s ease both; transition: all .35s ease-in-out;
         }
@@ -105,7 +106,7 @@ body,html{
             animation: slide-sneaker-view1 .65s .6s ease-in-out backwards;
             position: absolute;
             top: 0px; left: 44%;
-            height: clamp(350px,40vw,750px);
+            height: clamp(350px,50vw,750px);
         }
     }
 
@@ -114,7 +115,7 @@ body,html{
         background-color: var(--search-container-bg);
         width: 100%; height: 100vh;
 
-        animation: view1-menu-slide .35s ease-in-out;
+        animation: view1-menu-slide .6s ease-in-out;
         #search-text-container{
             height: 100%; width: 100%; 
             display: flex; justify-content: center; 
@@ -122,6 +123,7 @@ body,html{
             h1{
                 font-family: 'Roboto',sans-serif ; font-size: 20px;
                 width: 100px; text-align: center; filter: opacity(.7);
+                transition: all .35s ease-in-out;
                 animation: logoAnimation 1.5s 1.15s ease-in-out backwards;
             }
         }
@@ -175,6 +177,16 @@ body,html{
     }
 }
 
+@keyframes slide-sneaker-view1-mobile {
+    from{
+        transform: translateX(500px) rotate(90deg);
+    }
+
+    to{
+        transform: translateX(0px) rotate(90deg);
+    }
+}
+
 @keyframes view1-menu-slide {
 
     from{
@@ -198,24 +210,27 @@ body,html{
             width: 100vw !important;
             height: 50vh;
             top: 0px; right: -5vw;
-            // background-color: aqua;
 
             #splash-view1{
-                position: relative;
-                top: 50%; z-index: 45 !important; right: 0px;
+                position: absolute;
+                top: 90%; z-index: 45 !important;
+                left: clamp(50px,54vw,520px);
                 // top: 50%; right: 50%; z-index: 99;
                 transform: rotate(90deg) scaleX(-1)  translateZ(0);
-                height: clamp(250px,50vw,400px) !important;
+                height: clamp(300px,40vw,450px) !important;
                 animation: none;
-                
+
+                animation: logoAnimation 1.4s .65s ease-in-out backwards;
             }
             #sneaker-view1{
-                position: relative !important;
-                top: 50%; z-index: 50 !important; left: -70px;
+                position: absolute !important;
+                top: 25%; z-index: 50 !important; left: 53.5vw;
                 // top: -20%; right: 50%; z-index: 99;
                 transform: rotate(90deg)  translateZ(0);
-                height: clamp(300px,60vw,500px);
+                height: clamp(475px,62vw,500px);
                 animation: none;
+
+                animation:slide-sneaker-view1-mobile .8s ease-in-out forwards;
             }
         }
        
@@ -223,9 +238,61 @@ body,html{
         #title-container{
             margin: 0px;
         }
+        #search-container{
+            // background-color: transparent !important; 
+            z-index: 31 !important; z-index: 180 !important;
+            position: absolute;
+            bottom: 0px; height: 15%; width: 100%;
+            display: flex !important; justify-content: right; align-items: center; 
+            #search-text-container{
+                display: none !important;
+            }
+
+            #explore-btn{
+                position: relative; font-family: 'Roboto', sans-serif;
+                display: flex; justify-content: center; align-items: center; 
+                // height: 6vh; width: fit-content; 
+                padding: .25em  1.25em;
+                margin-right: 2em;
+                // background-color: var(--primary-red-color);
+                // color: whitesmoke;
+                border:4px var(--primary-red-color) solid;
+                color: var(--primary-red-color); font-weight: 600; font-size: 30px;
+
+                animation: logoAnimation 1.5s 1.15s ease-in-out backwards; transition: all .35s ease-in-out;
+            }
+
+            #explore-btn:hover{
+                cursor: pointer;
+                background-color: var(--primary-red-color);
+                color: whitesmoke;
+            }
+        }
     }
-    #search-container{
-        // background-color: transparent !important; 
-        z-index: 31 !important;
+}
+
+
+
+
+
+@media only screen and (max-width:600px) {
+    #splash-view1{
+        left: 45vw !important;
+    }
+
+    #sneaker-view1{
+        left: 30vw !important;
+        top: 20% !important;
+    }
+    
+}
+
+@media only screen and (max-width:500px) {
+    #splash-view1{
+        left: 34vw !important;
+    }
+
+    #sneaker-view1{
+        left: 20vw !important;
     }
 }
