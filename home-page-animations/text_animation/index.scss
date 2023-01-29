@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant&family=Manrope:wght@600&family=Press+Start+2P&family=Roboto:wght@400&family=Ubuntu&display=swap');
 
-// font-family: 'Press Start 2P', cursive;
-
-
-
-
 :root{
     --search-container-bg:#e4e4e4;
     --primary-red-color:#AF0126;
@@ -13,10 +8,6 @@
 body,html{
     height: 100vh; background-color: rgb(255, 255, 255); overflow: hidden;
     z-index: 2; padding: 0px; margin: 0px;
-}
-
-*{
-
 }
 
 // #loading-scene{  
@@ -39,30 +30,60 @@ body,html{
 //     }
 // }
 
+#main-menu{
+    position: absolute; top: 0px; left: 0px;
+    width: 100vw; height: 100vh;
+    background-color: rgb(0, 0, 0); z-index: 999999;
+    transform: translateY(-100vh); 
+    transition: all .35s ease-in-out;
+}
+
 .navbar{ 
     font-family: 'Roboto'; font-weight: 100; background-color: transparent;
     position: absolute; width: 100%; display: flex;
-     justify-content: space-between; height: 3em;
+    justify-content: space-between; height: 3em; z-index: 999999;
     .nav-left{
         margin-left: 20px; padding: 0px; width: 10%;
         height: 3em;
         display: flex; justify-content: left; align-items: center;
-        #logo{
+        .logo{
             height: 1.75em;
             transform: translateZ(0px);
+        }
+    }
+
+    .nav-right{ 
+        height: 3em; width: 8%;
+        display: flex; justify-content: right; margin-right: 20px;
+        #menu-icon{
+            text-decoration: none; height: 3em;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            h1{
+                font-size: 12px; color: black; margin: 0px;
+                transition: all .35s ease-in-out;
+            }
+            .menu-bar{
+                height: 5px; width:36px; background-color: black; border-radius: 10px;
+                margin-top: 3px; transition: all .35s ease-in-out;
+            }
+            #menu-bar-2{
+                transform: translateX(0px);
+            }
+        }
+        #menu-icon:hover h1{
+            transform: translateX(75px);
         }
     }
 }
 
 
 #view1{
-    height: 100vh;
+    height: 100vh; width: 100vw;
     display: grid;
     grid-template-columns: repeat(3,1fr);
 
     #title-container{
         grid-row-start: 1; grid-column-start: 1; filter: opacity(.75);
-        // background-color: rgb(146, 113, 73);
 
         height: 100%; overflow: visible; width: 20em;
         display: flex; flex-direction: column; color: rgb(0, 0, 0);
@@ -70,7 +91,6 @@ body,html{
     
         #cover-text{
             position: relative; width: 50vw; overflow: hidden;
-    
         }
         #title-text{
             animation: skewText 1.5s 0s ease both;
@@ -93,7 +113,6 @@ body,html{
 
     #media-container{
         grid-column-start: 1; grid-column-start: 2;
-        // background-color: antiquewhite;
 
         #splash-view1{
             position: absolute;
@@ -105,8 +124,8 @@ body,html{
         #sneaker-view1{
             animation: slide-sneaker-view1 .65s .6s ease-in-out backwards;
             position: absolute;
-            top: 0px; left: 44%;
-            height: clamp(350px,50vw,750px);
+            top: 0px; right:32vw;
+            height: clamp(350px,40vw,800px);
         }
     }
 
@@ -114,7 +133,6 @@ body,html{
         grid-column-start: 1; grid-column-start: 3;
         background-color: var(--search-container-bg);
         width: 100%; height: 100vh;
-
         animation: view1-menu-slide .6s ease-in-out;
         #search-text-container{
             height: 100%; width: 100%; 
@@ -122,7 +140,7 @@ body,html{
             align-items: center;
             h1{
                 font-family: 'Roboto',sans-serif ; font-size: 20px;
-                width: 100px; text-align: center; filter: opacity(.7);
+                width: 100px; text-align: center; filter: opacity(.8);
                 transition: all .35s ease-in-out;
                 animation: logoAnimation 1.5s 1.15s ease-in-out backwards;
             }
@@ -131,10 +149,7 @@ body,html{
 }
 
 
-
-
 @keyframes skewText {
-
     from{
         transform: skewY(15deg) translateY(400px);
     }
@@ -157,7 +172,6 @@ body,html{
 
 
 @keyframes loadingScreen {
-
     from{
         transform: translateY(0);
     }
@@ -188,7 +202,6 @@ body,html{
 }
 
 @keyframes view1-menu-slide {
-
     from{
         transform: translateY(1000px);
     }
@@ -199,7 +212,6 @@ body,html{
 }
 
 @media only screen and (max-width:965px) {
-
     #view1{
         width: 100%;
         display: block;
@@ -215,8 +227,7 @@ body,html{
                 position: absolute;
                 top: 90%; z-index: 45 !important;
                 left: clamp(50px,54vw,520px);
-                // top: 50%; right: 50%; z-index: 99;
-                transform: rotate(90deg) scaleX(-1)  translateZ(0);
+                transform: rotate(90deg) scaleX(-1) translateZ(0);
                 height: clamp(300px,40vw,450px) !important;
                 animation: none;
 
@@ -225,8 +236,7 @@ body,html{
             #sneaker-view1{
                 position: absolute !important;
                 top: 25%; z-index: 50 !important; left: 53.5vw;
-                // top: -20%; right: 50%; z-index: 99;
-                transform: rotate(90deg)  translateZ(0);
+                transform: rotate(90deg) translateZ(0);
                 height: clamp(475px,62vw,500px);
                 animation: none;
 
@@ -239,11 +249,12 @@ body,html{
             margin: 0px;
         }
         #search-container{
-            // background-color: transparent !important; 
+            background-color: transparent;
             z-index: 31 !important; z-index: 180 !important;
             position: absolute;
             bottom: 0px; height: 15%; width: 100%;
             display: flex !important; justify-content: right; align-items: center; 
+            
             #search-text-container{
                 display: none !important;
             }
@@ -251,11 +262,8 @@ body,html{
             #explore-btn{
                 position: relative; font-family: 'Roboto', sans-serif;
                 display: flex; justify-content: center; align-items: center; 
-                // height: 6vh; width: fit-content; 
                 padding: .25em  1.25em;
                 margin-right: 2em;
-                // background-color: var(--primary-red-color);
-                // color: whitesmoke;
                 border:4px var(--primary-red-color) solid;
                 color: var(--primary-red-color); font-weight: 600; font-size: 30px;
 
@@ -272,9 +280,6 @@ body,html{
 }
 
 
-
-
-
 @media only screen and (max-width:600px) {
     #splash-view1{
         left: 45vw !important;
@@ -284,7 +289,6 @@ body,html{
         left: 30vw !important;
         top: 20% !important;
     }
-    
 }
 
 @media only screen and (max-width:500px) {

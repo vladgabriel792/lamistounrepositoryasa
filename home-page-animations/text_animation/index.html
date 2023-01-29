@@ -14,14 +14,23 @@
         </div>
     </div> -->
 
+    <div id="main-menu">
+
+    </div>
 
     <div class="navbar">
         <div class="nav-left">
-            <!-- <h1>COMP WEAR</h1> -->
-            <img src="/home-page-animations/text_animation/media/logo.svg" alt="" id="logo">
+            <img src="/home-page-animations/text_animation/media/logo.svg" alt="" class="logo">
+            <img src="/home-page-animations/text_animation/media/logo_dark.svg" alt="" class="logo" hidden="true">
         </div>
         <div class="nav-center"></div>
-        <div class="nav-right"></div>
+        <div class="nav-right">
+            <a href="#" id="menu-icon">
+                <h1 id="menu-text">MENU</h1>
+                <div class="menu-bar"></div>
+                <div id="menu-bar-2" class="menu-bar"></div>
+            </a>
+        </div>
     </div>
 
     <div class="view" id="view1">
@@ -48,7 +57,7 @@
             <div id="search-text-container">
                 <h1>Looking for anything?</h1>
             </div>
-
+            
             <div id="explore-btn">SHOP</div>
         </div>
     </div>
@@ -56,6 +65,35 @@
     <div class="view" id="view2"></div>
     <div class="view" id="view3"></div>
 
+
+    <script>
+        let menu_btn = document.querySelector("#menu-icon")
+        let menu_text = document.querySelector("#menu-text")
+        let menu_bar_2 = document.querySelector("#menu-bar-2")
+        let main_menu = document.querySelector("#main-menu")
+        let menu_bar_1 = document.querySelectorAll(".menu-bar")[0]
+        let logos = document.querySelectorAll(".logo")
+
+        menu_btn.addEventListener("click", () => {
+            menu_text.innerHTML =  menu_text.innerHTML=="MENU" ? "CLOSE" : "MENU"
+            menu_text.style.color = menu_text.style.color == "white" ? "black" : "white"
+            menu_bar_2.style.transform = menu_bar_2.style.transform == "translateX(75px)" ? "translateX(0px)" : "translateX(75px)"
+            menu_bar_1.style.backgroundColor = menu_bar_1.style.backgroundColor == "white" ? "black" : "white"
+            if(menu_text.innerHTML == "CLOSE")
+            {
+                main_menu.style.transform = "translateY(0px)"
+                logos[0].style.display = "none"
+                logos[1].hidden = false
+            }
+            else{
+                main_menu.style.transform = "translateY(-100vh)"
+                setTimeout(()=> {
+                    logos[0].style.display = "block"
+                    logos[1].hidden = true
+                },400)
+            }
+        })
+    </script>
     
 </body>
 </html>
